@@ -6,8 +6,8 @@ import rec3 from '../images/rec-3.png';
 import rec4 from '../images/rec-4.png';
 
 export const getItemsRequest = async () => {
-  return await new Promise(resolve => 
-    setTimeout(()=> {
+  return await new Promise(resolve =>
+    setTimeout(() => {
       resolve({
         success: true,
         data: [
@@ -27,13 +27,14 @@ export const getItemsRequest = async () => {
             price: 450
           }
         ]
-      })
-    }), 5000)
-}
+      });
+    }, 1500)
+  );
+};
 
 export const getRecommendedItemsRequest = async () => {
   return await new Promise(resolve =>
-    setTimeout(() =>{
+    setTimeout(() => {
       resolve({
         success: true,
         data: [
@@ -58,17 +59,17 @@ export const getRecommendedItemsRequest = async () => {
             text: 'Забавная Мужская футболка Роберт Паттинсон стоячий мем'
           }
         ]
-      })
-    }, 5000)
-  )
-}
+      });
+    }, 1500)
+  );
+};
 
 const promoCodes = {
   PROMO10: 10,
   PROMO15: 15,
   PROMO20: 20,
   PROMO666: 100
-}
+};
 
 export const applyPromoCodeRequest = async code => {
   const result = { success: true };
@@ -81,6 +82,6 @@ export const applyPromoCodeRequest = async code => {
   return await new Promise(resolve =>
     setTimeout(() => {
       resolve(result);
-    }, 5000)
+    }, 1500)
   );
 };

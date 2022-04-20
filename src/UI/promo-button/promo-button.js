@@ -1,22 +1,20 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styles from './promo-button.module.css';
 import closeIcon from '../../images/close.svg';
+import { CANCEL_PROMO } from '../../services/actions/cart';
+import { useDispatch } from 'react-redux';
 
-import { DiscountContext } from '../../services/appContext'; 
-import { PromoContext } from '../../services/productsContext';
-
-export const PromoButton = ({children, extraClass }) => {
-  const { setPromo } = useContext(PromoContext)
-  const { discountDispatcher } = useContext(DiscountContext)
+export const PromoButton = ({ children, extraClass }) => {
+  const dispatch = useDispatch();
 
   const cancelPromo = () => {
-    setPromo('')
-    discountDispatcher({type: 'reset'})
-  }
+    dispatch({ type: CANCEL_PROMO });
+  };
+
   return (
     <button type="button" className={`${styles.button} ${extraClass}`} onClick={cancelPromo}>
       {children}
       <img className={styles.close} src={closeIcon} alt="кнопка закрытия" />
     </button>
-  )
-}
+  );
+};
